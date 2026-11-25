@@ -80,7 +80,9 @@ pytest -v
 
 - Plataforma: **Render** — comando de instalación `pip install -r requirements.txt`,
   comando de inicio `gunicorn app:app`.
-- URL pública: *(pendiente de despliegue)*
+- URL pública: **<https://taskmanager-devops-peiz.onrender.com>**
+- Monitoreo: <https://taskmanager-devops-peiz.onrender.com/health>
+- Render vuelve a desplegar automáticamente cada vez que se integra un cambio en `main` (despliegue continuo).
 
 ## Documentación de las fases DevOps
 
