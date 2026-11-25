@@ -1,0 +1,13 @@
+# Configuración de despliegue en Render (Fase 6).
+# Render lee este archivo y crea el servicio web automáticamente.
+services:
+  - type: web
+    name: taskmanager-devops
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
