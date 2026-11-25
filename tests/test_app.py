@@ -139,3 +139,12 @@ def test_asignar_prioridad(client, prioridad):
 def test_prioridad_invalida(client):
     resp = crear(client, prioridad="Urgentísima")
     assert resp.status_code == 400
+
+
+# Fase 7 - Monitoreo
+def test_health(client):
+    resp = client.get("/health")
+    assert resp.status_code == 200
+    datos = resp.get_json()
+    assert datos["status"] == "ok"
+    assert datos["database"] == "ok"

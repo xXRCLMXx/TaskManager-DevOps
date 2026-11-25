@@ -1,0 +1,23 @@
+name: Entrega Continua
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  entrega:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar codigo
+        uses: actions/checkout@v4
+
+      - name: Preparar artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: TaskManager-v1
+          path: |
+            app.py
+            requirements.txt
+            templates/
+            static/

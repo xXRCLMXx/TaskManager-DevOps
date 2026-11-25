@@ -1,0 +1,26 @@
+name: Monitoreo
+
+# Revisa cada 6 horas (y cuando se lance a mano) que la app publicada responda.
+# Requiere un "secret" del repositorio llamado APP_URL con la URL pública,
+# por ejemplo: https://taskmanager-devops.onrender.com
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Verificar disponibilidad y tiempo de respuesta
+        env:
+          APP_URL: ${{ secrets.APP_URL }}
+        run: |
+          if [ -z "$APP_URL" ]; then
+            echo "Falta configurar el secret APP_URL"; exit 1
+          fi
+          # Render (plan gratis) "duerme" la app; se da tiempo a que despierte
+          curl --silent --show-error --fail --max-time 90 \
+               --write-out "\nCodigo HTTP: %{http_code}\nTiempo total: %{time_total}s\n" \
+               "$APP_URL/health"
