@@ -169,6 +169,50 @@ def create_app(test_config=None):
             {"mensaje": "Tarea registrada correctamente.", "tarea": tarea}
         ), 201
 
+    # RF03 - Editar tareas
+    @app.route("/api/tareas/<int:tarea_id>", methods=["PUT"])
+    def editar_tarea(tarea_id):
+        if not buscar_tarea(tarea_id):
+            return no_encontrada()
+
+        datos, error = validar_tarea(request.get_json(silent=True))
+        if error:
+            return jsonify({"error": error}), 400
+
+        db = get_db()
+        db.execute(
+            "UPDATE tareas SET nombre = ?, descripcion = ?, prioridad = ?, "
+            "estado = ? WHERE id = ?",
+            (datos["nombre"], datos["descripcion"], datos["prioridad"],
+             datos["estado"], tarea_id),
+        )
+        db.commit()
+        return jsonify(
+            {"mensaje": "Tarea actualizada correctamente.",
+             "tarea": buscar_tarea(tarea_id)}
+        )
+
+    # RF05 - Cambiar estado
+    @app.route("/api/tareas/<int:tarea_id>/estado", methods=["PATCH"])
+    def cambiar_estado(tarea_id):
+        if not buscar_tarea(tarea_id):
+            return no_encontrada()
+
+        datos = request.get_json(silent=True) or {}
+        estado = datos.get("estado")
+        if estado not in ESTADOS:
+            return jsonify(
+                {"error": f"Estado inválido. Usa: {', '.join(ESTADOS)}."}
+            ), 400
+
+        db = get_db()
+        db.execute("UPDATE tareas SET estado = ? WHERE id = ?",
+                   (estado, tarea_id))
+        db.commit()
+        return jsonify(
+            {"mensaje": "Estado actualizado.", "tarea": buscar_tarea(tarea_id)}
+        )
+
     return app
 
 
