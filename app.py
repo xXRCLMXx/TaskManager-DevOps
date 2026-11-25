@@ -224,6 +224,22 @@ def create_app(test_config=None):
         db.commit()
         return jsonify({"mensaje": "Tarea eliminada correctamente."})
 
+    # Fase 7 - Monitoreo: revisa que la app y la base de datos respondan
+    @app.route("/health")
+    def health():
+        inicio = time.perf_counter()
+        try:
+            total = get_db().execute("SELECT COUNT(*) FROM tareas").fetchone()[0]
+            estado_db = "ok"
+        except sqlite3.Error as exc:
+            logger.error("Fallo en la base de datos: %s", exc)
+            return jsonify({"status": "error", "database": str(exc)}), 500
+        ms = round((time.perf_counter() - inicio) * 1000, 2)
+        return jsonify(
+            {"status": "ok", "database": estado_db,
+             "total_tareas": total, "tiempo_respuesta_ms": ms}
+        )
+
     return app
 
 
