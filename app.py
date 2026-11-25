@@ -213,6 +213,17 @@ def create_app(test_config=None):
             {"mensaje": "Estado actualizado.", "tarea": buscar_tarea(tarea_id)}
         )
 
+    # RF04 - Eliminar tareas
+    @app.route("/api/tareas/<int:tarea_id>", methods=["DELETE"])
+    def eliminar_tarea(tarea_id):
+        if not buscar_tarea(tarea_id):
+            return no_encontrada()
+
+        db = get_db()
+        db.execute("DELETE FROM tareas WHERE id = ?", (tarea_id,))
+        db.commit()
+        return jsonify({"mensaje": "Tarea eliminada correctamente."})
+
     return app
 
 
