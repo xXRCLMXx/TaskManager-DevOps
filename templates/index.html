@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskManager - TechSolutions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>TaskManager</h1>
+        <p>Sistema web para la gestión de tareas · TechSolutions</p>
+    </header>
+
+    <main>
+        <!-- RF01 / RF03: formulario para registrar o editar una tarea -->
+        <section class="tarjeta">
+            <h2 id="titulo-form">Nueva tarea</h2>
+            <form id="form-tarea" novalidate>
+                <input type="hidden" id="tarea-id">
+
+                <label for="nombre">Nombre de la tarea *</label>
+                <input type="text" id="nombre" maxlength="100"
+                       placeholder="Ej. Elaborar documentación">
+
+                <label for="descripcion">Descripción</label>
+                <textarea id="descripcion" rows="3"
+                          placeholder="Detalles de la actividad"></textarea>
+
+                <div class="fila">
+                    <div>
+                        <!-- RF06: prioridad -->
+                        <label for="prioridad">Prioridad</label>
+                        <select id="prioridad">
+                            {% for p in prioridades %}
+                            <option value="{{ p }}" {% if p == 'Media' %}selected{% endif %}>{{ p }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div>
+                        <!-- RF05: estado -->
+                        <label for="estado">Estado</label>
+                        <select id="estado">
+                            {% for e in estados %}
+                            <option value="{{ e }}">{{ e }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="botones">
+                    <button type="submit" id="btn-guardar">Guardar tarea</button>
+                    <button type="button" id="btn-cancelar" class="secundario" hidden>Cancelar edición</button>
+                </div>
+            </form>
+            <div id="mensaje" role="status"></div>
+        </section>
+
+        <!-- RF02: listado de tareas -->
+        <section class="tarjeta">
+            <h2>Tareas registradas <span id="contador"></span></h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Tarea</th>
+                        <th>Prioridad</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-tareas"></tbody>
+            </table>
+            <p id="sin-tareas" hidden>No hay tareas registradas.</p>
+        </section>
+    </main>
+
+    <script>
+        const ESTADOS = {{ estados | tojson }};
+    </script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
