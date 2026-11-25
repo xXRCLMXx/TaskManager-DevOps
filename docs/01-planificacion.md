@@ -1,16 +1,15 @@
 # Fase 1 – Planificación (Plan)
 
-## 1. Roles del equipo (3 integrantes)
+## 1. Roles del equipo
 
-El documento recomienda 4 roles; al ser 3 integrantes, un integrante cubre dos roles.
+El documento recomienda 4 roles; al ser 2 integrantes, cada uno cubre dos roles.
 
 | Rol | Integrante | Responsabilidades |
 |---|---|---|
-| Product Owner + Desarrollador | Integrante 1 | Requerimientos, prioridades, tablero, historias de usuario; RF01 registro y RF02 consulta |
-| Desarrollador backend | Integrante 2 | API Flask, base de datos SQLite, RF03 edición y RF05 estados |
-| Desarrollador frontend + DevOps/QA | Integrante 3 | Interfaz, RF04 eliminación, RF06 prioridad, GitHub Actions, pruebas y despliegue |
+| Product Owner + Ingeniero DevOps / QA | Roberto Carlos Lancho Mastranzo | Requerimientos, prioridades, tablero, historias de usuario; GitHub Actions, pruebas, release, despliegue y monitoreo |
+| Desarrollador 1 + Desarrollador 2 | Eduardo Dominguez Mendez | Backend Flask + SQLite e interfaz: RF01 a RF06 |
 
-Todos revisamos Pull Requests de los demás.
+Ambos revisamos los Pull Requests del otro.
 
 ## 2. Tablero (GitHub Projects)
 
@@ -94,18 +93,18 @@ Criterios de aceptación:
 
 | # | Issue | Responsable | Prioridad | Estimación (h) | Fase DevOps | Fecha límite |
 |---|---|---|---|---|---|---|
-| 1 | Crear la estructura inicial del proyecto | Integrante 1 | Crítica | 2 | Plan | 2026-11-18 |
-| 2 | Diseñar la interfaz del sistema | Integrante 3 | Alta | 3 | Code | 2026-11-19 |
-| 3 | Implementar el registro de tareas (RF01) | Integrante 1 | Crítica | 3 | Code | 2026-11-20 |
-| 4 | Implementar la consulta de tareas (RF02) | Integrante 1 | Alta | 2 | Code | 2026-11-20 |
-| 5 | Implementar la edición de tareas (RF03) | Integrante 2 | Alta | 3 | Code | 2026-11-21 |
-| 6 | Implementar la eliminación de tareas (RF04) | Integrante 3 | Alta | 2 | Code | 2026-11-21 |
-| 7 | Implementar el cambio de estado (RF05) | Integrante 2 | Alta | 2 | Code | 2026-11-21 |
-| 8 | Implementar la asignación de prioridad (RF06) | Integrante 3 | Media | 1 | Code | 2026-11-21 |
-| 9 | Implementar las pruebas unitarias | Integrante 3 | Alta | 3 | Test | 2026-11-22 |
-| 10 | Configurar integración continua (ci.yml) | Integrante 3 | Alta | 2 | Build | 2026-11-22 |
-| 11 | Ejecutar matriz de pruebas funcionales | Integrante 2 | Media | 2 | Test | 2026-11-23 |
-| 12 | Publicar Release v1.0.0 y workflow de entrega | Integrante 1 | Media | 1 | Release | 2026-11-23 |
-| 13 | Desplegar la aplicación en Render | Integrante 3 | Alta | 2 | Deploy | 2026-11-24 |
-| 14 | Configurar monitoreo y registro de incidencias | Integrante 2 | Media | 2 | Monitor | 2026-11-24 |
-| 15 | Documentación, resultados y conclusiones | Integrante 1 | Media | 2 | Operate | 2026-11-25 |
+| 1 | Crear la estructura inicial del proyecto | Roberto Carlos Lancho Mastranzo | Crítica | 2 | Plan | 2026-11-18 |
+| 2 | Diseñar la interfaz del sistema | Eduardo Dominguez Mendez | Alta | 3 | Code | 2026-11-19 |
+| 3 | Implementar el registro de tareas (RF01) | Eduardo Dominguez Mendez | Crítica | 3 | Code | 2026-11-20 |
+| 4 | Implementar la consulta de tareas (RF02) | Eduardo Dominguez Mendez | Alta | 2 | Code | 2026-11-20 |
+| 5 | Implementar la edición de tareas (RF03) | Eduardo Dominguez Mendez | Alta | 3 | Code | 2026-11-21 |
+| 6 | Implementar la eliminación de tareas (RF04) | Eduardo Dominguez Mendez | Alta | 2 | Code | 2026-11-21 |
+| 7 | Implementar el cambio de estado (RF05) | Eduardo Dominguez Mendez | Alta | 2 | Code | 2026-11-21 |
+| 8 | Implementar la asignación de prioridad (RF06) | Eduardo Dominguez Mendez | Media | 1 | Code | 2026-11-21 |
+| 9 | Implementar las pruebas unitarias | Roberto Carlos Lancho Mastranzo | Alta | 3 | Test | 2026-11-22 |
+| 10 | Configurar integración continua (ci.yml) | Roberto Carlos Lancho Mastranzo | Alta | 2 | Build | 2026-11-22 |
+| 11 | Ejecutar matriz de pruebas funcionales | Roberto Carlos Lancho Mastranzo | Media | 2 | Test | 2026-11-23 |
+| 12 | Publicar Release v1.0.0 y workflow de entrega | Roberto Carlos Lancho Mastranzo | Media | 1 | Release | 2026-11-23 |
+| 13 | Desplegar la aplicación en Render | Roberto Carlos Lancho Mastranzo | Alta | 2 | Deploy | 2026-11-24 |
+| 14 | Configurar monitoreo y registro de incidencias | Roberto Carlos Lancho Mastranzo | Media | 2 | Monitor | 2026-11-24 |
+| 15 | Documentación, resultados y conclusiones | Roberto Carlos Lancho Mastranzo | Media | 2 | Operate | 2026-11-25 |

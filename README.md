@@ -93,6 +93,5 @@ pytest -v
 
 | Rol | Integrante |
 |---|---|
-| Product Owner | *Integrante 1* |
-| Desarrollador (backend) | *Integrante 2* |
-| Desarrollador (frontend) + DevOps/QA | *Integrante 3* |
+| Product Owner + Ingeniero DevOps / QA | Roberto Carlos Lancho Mastranzo |
+| Desarrollador (backend e interfaz) | Eduardo Dominguez Mendez |
