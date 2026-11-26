@@ -69,11 +69,15 @@
                         <th>Acciones</th>
                     </tr>
                 </thead>
+                
                 <tbody id="lista-tareas"></tbody>
             </table>
             <p id="sin-tareas" hidden>No hay tareas registradas.</p>
         </section>
     </main>
+      <footer style="text-align:center; padding:16px; color:#6b7280;">
+        TaskManager v1.0.0 · Equipo: Roberto Carlos Lancho Mastranzo y Eduardo Dominguez Mendez
+    </footer>
 
     <script>
         const ESTADOS = {{ estados | tojson }};
