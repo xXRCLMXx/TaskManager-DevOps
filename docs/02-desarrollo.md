@@ -20,6 +20,8 @@
 | [#28](https://github.com/xXRCLMXx/TaskManager-DevOps/pull/28) | `docs/nombres-equipo` | Integrantes y roles | — |
 | [#29](https://github.com/xXRCLMXx/TaskManager-DevOps/pull/29) | `docs/url-despliegue` | URL pública de Render | #13 |
 | [#37](https://github.com/xXRCLMXx/TaskManager-DevOps/pull/37) | `docs/monitoreo` | Registro de monitoreo, incidencias y mejoras | #14, #15 |
+| [#38](https://github.com/xXRCLMXx/TaskManager-DevOps/pull/38) | `docs/fase-desarrollo` | Documentación de la fase de desarrollo (abierto por Roberto, revisado e integrado por Eduardo) | — |
+| [#40](https://github.com/xXRCLMXx/TaskManager-DevOps/pull/40) | `feature/pie-de-pagina` | Pie de página con versión e integrantes (abierto por Eduardo, revisado e integrado por Roberto) | #39 |
 
 ## Convención de nombres de ramas
 
